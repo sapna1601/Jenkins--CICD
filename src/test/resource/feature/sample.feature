@@ -1,4 +1,4 @@
-Feature: Calculator Operations
+Feature: sample application testcase
 
 @Sample
   Scenario: Verify the Altimetrik Header
