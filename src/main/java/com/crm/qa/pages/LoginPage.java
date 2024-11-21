@@ -2,35 +2,36 @@ package com.crm.qa.pages;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.support.FindBy;
+//import org.openqa.selenium.support.PageFactory;
+//
+//import com.crm.qa.base.TestBase;
 
-import com.crm.qa.base.TestBase;
+public class LoginPage{
 
-public class LoginPage extends TestBase{
+	public class Calculator {
 
-	public void launchURL() {
-		System.setProperty("webdriver.chrome.driver", "/Users/naveenkhunteta/Downloads/chromedriver");
-		driver = new ChromeDriver();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		driver.get("https://www.altimetrik.com/contact/");
-		
+	    public int add(int a, int b) {
+	        return a + b;
+	    }
+
+	    public int subtract(int a, int b) {
+	        return a - b;
+	    }
+
+	    public int multiply(int a, int b) {
+	        return a * b;
+	    }
+
+	    public int divide(int a, int b) {
+	        if (b != 0) {
+	            return a / b;
+	        }
+	        throw new IllegalArgumentException("Cannot divide by zero");
+	    }
 	}
-
-	public boolean verifyHeader() {
-		List<WebElement> elements = driver.findElements(By.xpath("//img[@alt='Altimetrik']"));
-        if (elements.size() > 0) {
-            System.out.println("Element is present.");
-            return true;
-        } else {
-            System.out.println("Element is not present.");
-            return false;
-        }
-		
-	}
-	
 }
