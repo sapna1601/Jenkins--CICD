@@ -5,7 +5,7 @@
 
     <groupId>SampleApplicationProject</groupId>
     <artifactId>SampleApplicationProject</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>SampleApplicationProject</name>
@@ -22,6 +22,10 @@
         <id>github</id>
         <url>https://maven.pkg.github.com/sapna1601/Jenkins--CICD</url>
     </repository>
+    <snapshotRepository>
+        <id>github-snapshots</id>
+        <url>https://maven.pkg.github.com/sapna1601/Jenkins--CICD</url>
+    </snapshotRepository>
 </distributionManagement>
 
 
@@ -105,8 +109,31 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.1.2</version>  <!-- Make sure you are using the latest version -->
+                <version>3.1.2</version>  
             </plugin>
+            
+             <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>com.test.MainClassName</mainClass>
+          </manifest>
+        </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+      <executions>
+        <execution>
+          <id>make-assembly</id> 
+          <phase>package</phase> <!-- packaging phase -->
+          <goals>
+            <goal>single</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
 
             <!-- Maven Surefire Plugin -->
             <plugin>
